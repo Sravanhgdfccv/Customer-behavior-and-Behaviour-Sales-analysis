@@ -1,0 +1,20 @@
+ <link rel="stylesheet" href="/static/style.css">
+
+<h2>Billing</h2>
+
+<div class="container">
+<input id="cname" placeholder="Customer Name">
+<input id="age" placeholder="Age">
+
+<select id="product">
+{% for p in products %}
+<option>{{p[1]}}</option>
+{% endfor %}
+</select>
+
+<input id="qty" placeholder="Quantity">
+<button onclick="bill()">Generate Bill</button>
+
+<p id="bill"></p>
+</div>
+<script src="/static/script.js"></script>

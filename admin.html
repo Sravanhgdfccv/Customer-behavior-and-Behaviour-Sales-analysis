@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<div class="container">
+<h3>Add / Update Product</h3>
+<input id="pid" placeholder="ID">
+<input id="name" placeholder="Name">
+<input id="price" placeholder="Price">
+<input id="qty" placeholder="Quantity">
+<button onclick="addProduct()">Submit</button>
+</div>
+
+<div class="container">
+<h3>Products</h3>
+<table border="1">
+<tr><th>ID</th><th>Name</th><th>Price</th><th>Qty</th></tr>
+{% for p in products %}
+<tr><td>{{p[0]}}</td><td>{{p[1]}}</td><td>{{p[2]}}</td><td>{{p[3]}}</td></tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="container">
+<h3>Sales</h3>
+<table border="1">
+<tr><th>Customer</th><th>Age</th><th>Product</th><th>Qty</th><th>Total</th></tr>
+{% for s in sales %}
+<tr><td>{{s[1]}}</td><td>{{s[2]}}</td><td>{{s[3]}}</td><td>{{s[5]}}</td><td>{{s[6]}}</td></tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="container">
+<h3>Users</h3>
+<table border="1">
+<tr><th>ID</th><th>Username</th><th>Role</th></tr>
+{% for u in users %}
+<tr><td>{{u[0]}}</td><td>{{u[1]}}</td><td>{{u[3]}}</td></tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="container">
+<button onclick="runAnalysis()">Run Analysis</button>
+<p id="analysisResult"></p>
+<canvas id="ageChart"></canvas>
+<canvas id="salesChart"></canvas>
+<a href="/export"><button>Download Excel</button></a>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
